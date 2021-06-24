@@ -13,6 +13,7 @@ public class Config {
 	
 	   static {
 		   properties= new Properties();
+		   //readProperties("/msconf/config.properties");
 		   readProperties("/users/victorvenegas/config/loginservice/config.properties");
 	   }
 
