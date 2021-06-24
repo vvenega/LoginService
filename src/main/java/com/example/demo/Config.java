@@ -18,20 +18,24 @@ public class Config {
 
 		
 		public static void readProperties(String file){
-			
+		    FileInputStream input = null;
 		    try {
-		      properties.load(new FileInputStream(new File(file)));
-		      
-		      /*System.out.println(properties.get("DRIVER"));
-		      System.out.println(properties.get("URL"));
-		      System.out.println(properties.get("USUARIO"));
-		      System.out.println(properties.get("CLAVE"));*/
+		      input = new FileInputStream(new File(file));
+		      properties.load(input);
+
 		    } catch (FileNotFoundException e) {
 		      // TODO Auto-generated catch block
 		      System.err.println(e.getMessage());
 		    } catch (IOException e) {
 		      // TODO Auto-generated catch block
 		      System.err.println(e.getMessage());
+		    }finally {
+		    	try {
+		    	if(input!=null)
+		    		input.close();
+		    	}catch(Exception e) {
+		    		System.err.println(" Error Closing File properties Login Service"+e.getLocalizedMessage());
+		    	}
 		    }
 			
 
